@@ -21,7 +21,7 @@ public class SimpleKafkaConsumer {
 	@Autowired
 	private KafkaConfiguration kafkaConfiguration;
 
-	public Consumer<Long, String> createConsumer() {
+	public Consumer<String, String> createConsumer() {
 		Properties consumerProps = new Properties();
 		consumerProps.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaConfiguration.getServers());
 		consumerProps.put(ConsumerConfig.GROUP_ID_CONFIG, "consumerGroup1"/* kafkaConfiguration.consumerGroup1() */);
@@ -31,7 +31,7 @@ public class SimpleKafkaConsumer {
 		consumerProps.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false");
 		consumerProps.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, kafkaConfiguration.getOffsetResetEarlier());
 
-		Consumer<Long, String> consumer = new KafkaConsumer<Long, String>(consumerProps);
+		Consumer<String, String> consumer = new KafkaConsumer<String, String>(consumerProps);
 		consumer.subscribe(Collections.singletonList(kafkaConfiguration.getTopic()));
 		return consumer;
 	}
@@ -40,9 +40,9 @@ public class SimpleKafkaConsumer {
 		final int giveUp = 100;
 		int noRecordsCount = 0;
 
-		final Consumer<Long, String> consumer = createConsumer();
+		final Consumer<String, String> consumer = createConsumer();
 		while (true) {
-			final ConsumerRecords<Long, String> consumerRecords = consumer.poll(Duration.ofSeconds(5));
+			final ConsumerRecords<String, String> consumerRecords = consumer.poll(Duration.ofSeconds(5));
 			if (consumerRecords.isEmpty()) {
 				noRecordsCount++;
 				if (noRecordsCount > giveUp)

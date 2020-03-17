@@ -27,6 +27,7 @@ public class HomeController {
 	@RequestMapping("/cunsumeTweets")
 	public String consumeTweets() {
 		simpleKafkaConsumer.createConsumer();
+		simpleKafkaConsumer.runConsumer();
 		return "Hello World!";
 	}
 }

@@ -16,9 +16,9 @@ public class KafkaConfiguration {
 
 	private String topic;
 
-	private long sleepTimer;
+	private Integer sleepTimer;
 
-	private long maxPollRecords;
+	private Integer maxPollRecords;
 
 	private String offsetResetEarlier;
 
@@ -38,11 +38,11 @@ public class KafkaConfiguration {
 		this.topic = topic;
 	}
 
-	public long getSleepTimer() {
+	public Integer getSleepTimer() {
 		return sleepTimer;
 	}
 
-	public void setSleepTimer(long sleepTimer) {
+	public void setSleepTimer(Integer sleepTimer) {
 		this.sleepTimer = sleepTimer;
 	}
 
@@ -52,11 +52,11 @@ public class KafkaConfiguration {
 				+ ", maxPollRecords=" + maxPollRecords + ", offsetResetEarlier=" + offsetResetEarlier + "]";
 	}
 
-	public long getMaxPollRecords() {
+	public Integer getMaxPollRecords() {
 		return maxPollRecords;
 	}
 
-	public void setMaxPollRecords(long maxPollRecords) {
+	public void setMaxPollRecords(Integer maxPollRecords) {
 		this.maxPollRecords = maxPollRecords;
 	}
 

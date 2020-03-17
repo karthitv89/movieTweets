@@ -88,7 +88,7 @@ public class TwitterKafkaProducer {
 		try (Producer<Long, String> producer = getProducer()) {
 			while (true) {
 				Tweet tweet = gson.fromJson(queue.take(), Tweet.class);
-				System.out.printf("Fetched tweet id %d\n", tweet.getId());
+				//System.out.printf("Fetched tweet id %d\n", tweet.getId());
 				long key = tweet.getId();
 				String msg = tweet.toString();
 				ProducerRecord<Long, String> record = new ProducerRecord<>(kafkaConfiguration.getTopic(), key, msg);
