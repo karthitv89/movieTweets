@@ -37,7 +37,7 @@ public class SimpleKafkaConsumer {
 	}
 
 	public void runConsumer() {
-		final int giveUp = 100;
+		/*final int giveUp = 100;
 		int noRecordsCount = 0;
 
 		final Consumer<String, String> consumer = createConsumer();
@@ -61,7 +61,7 @@ public class SimpleKafkaConsumer {
 		}
 
 		consumer.close();
-		System.out.println("DONE");
+		System.out.println("DONE");*/
 	}
 
 }
